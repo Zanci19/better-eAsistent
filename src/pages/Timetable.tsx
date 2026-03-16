@@ -10,6 +10,7 @@ import {
   IonItem,
   IonLabel,
   IonList,
+  IonMenuButton,
   IonNote,
   IonPage,
   IonRefresher,
@@ -133,6 +134,9 @@ const Timetable: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
           <IonTitle>Urnik</IonTitle>
           {!isCurrentWeek && (
             <IonButtons slot="end">
@@ -205,44 +209,45 @@ const Timetable: React.FC = () => {
                   ) : (
                     <IonList lines="none" className="day-events">
                       {dayEvents.map((event, idx) => (
-                        <IonItem
+                        <div
                           key={idx}
-                          className="event-item"
-                          style={{ '--event-color': event.color || 'var(--ion-color-primary)' }}
+                          className="event-wrapper"
+                          style={{ borderLeftColor: event.color || 'var(--ion-color-primary)' }}
                         >
-                          <div className="event-color-bar" style={{ background: event.color || 'var(--ion-color-primary)' }} />
-                          <IonLabel>
-                            <div className="event-title">
-                              <span className="event-subject">{event.title}</span>
-                              {event.lesson && (
-                                <span className="event-lesson">{event.lesson}</span>
-                              )}
-                            </div>
-                            <div className="event-meta">
-                              <IonChip className="event-chip event-chip--time">
-                                <IonIcon icon={timeOutline} />
-                                <IonLabel>{formatTime(event.from)} – {formatTime(event.to)}</IonLabel>
-                              </IonChip>
-                              {event.classroom && (
-                                <IonChip className="event-chip event-chip--room">
-                                  <IonIcon icon={locationOutline} />
-                                  <IonLabel>{event.classroom}</IonLabel>
-                                </IonChip>
-                              )}
-                            </div>
-                            {event.teachers && event.teachers.length > 0 && (
-                              <div className="event-teachers">
-                                <IonIcon icon={personOutline} />
-                                <span>{event.teachers.join(', ')}</span>
+                          <IonItem className="event-item">
+                            <IonLabel>
+                              <div className="event-title">
+                                <span className="event-subject">{event.title}</span>
+                                {event.lesson && (
+                                  <span className="event-lesson">{event.lesson}</span>
+                                )}
                               </div>
-                            )}
-                            {event.homework && event.homework.length > 0 && (
-                              <IonNote color="warning" className="event-homework">
-                                📝 Domača naloga
-                              </IonNote>
-                            )}
-                          </IonLabel>
-                        </IonItem>
+                              <div className="event-meta">
+                                <IonChip className="event-chip event-chip--time">
+                                  <IonIcon icon={timeOutline} />
+                                  <IonLabel>{formatTime(event.from)} – {formatTime(event.to)}</IonLabel>
+                                </IonChip>
+                                {event.classroom && (
+                                  <IonChip className="event-chip event-chip--room">
+                                    <IonIcon icon={locationOutline} />
+                                    <IonLabel>{event.classroom}</IonLabel>
+                                  </IonChip>
+                                )}
+                              </div>
+                              {event.teachers && event.teachers.length > 0 && (
+                                <div className="event-teachers">
+                                  <IonIcon icon={personOutline} />
+                                  <span>{event.teachers.join(', ')}</span>
+                                </div>
+                              )}
+                              {event.homework && event.homework.length > 0 && (
+                                <IonNote color="warning" className="event-homework">
+                                  📝 Domača naloga
+                                </IonNote>
+                              )}
+                            </IonLabel>
+                          </IonItem>
+                        </div>
                       ))}
                     </IonList>
                   )}

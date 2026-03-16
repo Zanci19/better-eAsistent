@@ -1,0 +1,117 @@
+.prehrana-error {
+  padding: 16px;
+  text-align: center;
+}
+
+.prehrana-skeleton {
+  padding: 16px;
+}
+
+.prehrana-skeleton-row {
+  margin-bottom: 16px;
+}
+
+.prehrana-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  text-align: center;
+  gap: 12px;
+}
+
+.prehrana-empty-icon {
+  font-size: 52px;
+  color: var(--ion-color-medium);
+}
+
+.prehrana-list {
+  padding: 12px 16px 80px;
+}
+
+.prehrana-day {
+  margin-bottom: 20px;
+}
+
+.prehrana-date-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+.prehrana-day--today .prehrana-date-header {
+  color: var(--ion-color-primary);
+}
+
+.today-pill {
+  font-size: 11px;
+  padding: 2px 8px;
+}
+
+.prehrana-card {
+  margin: 0 0 8px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.prehrana-card--ordered {
+  border-left: 4px solid var(--ion-color-success);
+}
+
+.prehrana-card-content {
+  padding: 12px 16px;
+}
+
+.prehrana-meal-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.prehrana-meal-icon {
+  font-size: 20px;
+  color: var(--ion-color-primary);
+  flex-shrink: 0;
+}
+
+.prehrana-meal-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ion-text-color);
+  flex: 1;
+}
+
+.prehrana-badge {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.prehrana-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.prehrana-chip {
+  --background: var(--ion-color-light);
+  height: 24px;
+  font-size: 12px;
+  margin: 0;
+  padding: 0 8px;
+}
+
+.prehrana-chip--price {
+  --background: rgba(var(--ion-color-success-rgb), 0.12);
+  --color: var(--ion-color-success-shade);
+}

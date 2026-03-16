@@ -10,6 +10,7 @@ import {
   IonHeader,
   IonIcon,
   IonLabel,
+  IonMenuButton,
   IonPage,
   IonRefresher,
   IonRefresherContent,
@@ -100,6 +101,9 @@ const Evaluations: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
           <IonTitle>Ocenjevanja</IonTitle>
         </IonToolbar>
         <IonToolbar>

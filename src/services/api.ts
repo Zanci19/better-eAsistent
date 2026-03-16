@@ -301,7 +301,8 @@ export function formatSlovenianDay(dateStr: string): string {
 }
 
 export async function getGrades(token: string): Promise<GradesResponse> {
-  const response = await fetch(`${BASE_URL}/grades`, {
+  const { from, to } = getSchoolYearBounds();
+  const response = await fetch(`${BASE_URL}/grades?from=${from}&to=${to}`, {
     method: 'GET',
     headers: authHeaders(token),
   });
@@ -314,7 +315,8 @@ export async function getGrades(token: string): Promise<GradesResponse> {
 }
 
 export async function getAbsences(token: string): Promise<AbsencesResponse> {
-  const response = await fetch(`${BASE_URL}/absences`, {
+  const { from, to } = getSchoolYearBounds();
+  const response = await fetch(`${BASE_URL}/absences?from=${from}&to=${to}`, {
     method: 'GET',
     headers: authHeaders(token),
   });
@@ -330,7 +332,8 @@ export async function getEvaluations(
   token: string,
   filter: 'future' | 'past',
 ): Promise<EvaluationsResponse> {
-  const response = await fetch(`${BASE_URL}/evaluations?filter=${filter}`, {
+  const { from, to } = getSchoolYearBounds();
+  const response = await fetch(`${BASE_URL}/evaluations?filter=${filter}&from=${from}&to=${to}`, {
     method: 'GET',
     headers: authHeaders(token),
   });
@@ -343,7 +346,8 @@ export async function getEvaluations(
 }
 
 export async function getHomework(token: string): Promise<HomeworkResponse> {
-  const response = await fetch(`${BASE_URL}/homework`, {
+  const { from, to } = getSchoolYearBounds();
+  const response = await fetch(`${BASE_URL}/homework?from=${from}&to=${to}`, {
     method: 'GET',
     headers: authHeaders(token),
   });
@@ -353,6 +357,20 @@ export async function getHomework(token: string): Promise<HomeworkResponse> {
   }
 
   return response.json() as Promise<HomeworkResponse>;
+}
+
+export async function getSchoolCatering(token: string): Promise<CateringResponse> {
+  const { from, to } = getSchoolYearBounds();
+  const response = await fetch(`${BASE_URL}/school_catering?from=${from}&to=${to}`, {
+    method: 'GET',
+    headers: authHeaders(token),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Napaka pri pridobivanju šolske prehrane (${response.status})`);
+  }
+
+  return response.json() as Promise<CateringResponse>;
 }
 
 export function gradeColor(value: number): string {
@@ -386,4 +404,33 @@ export function daysUntil(dateStr: string): number {
   const now = new Date();
   const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
   return Math.round((target - today) / (1000 * 60 * 60 * 24));
+}
+
+/** Returns ISO date strings for the start and end of the current school year. */
+export function getSchoolYearBounds(): { from: string; to: string } {
+  const now = new Date();
+  const month = now.getMonth() + 1; // 1‑12
+  const year = now.getFullYear();
+  const startYear = month >= 9 ? year : year - 1;
+  return {
+    from: `${startYear}-09-01`,
+    to: `${startYear + 1}-06-30`,
+  };
+}
+
+// ── School catering ───────────────────────────────────────────────────────────
+
+export interface CateringOrder {
+  id: number;
+  date: string;
+  meal_name: string;
+  meal_type: string;
+  ordered: boolean;
+  price: number | null;
+  menu_id: number | null;
+  menu_name: string | null;
+}
+
+export interface CateringResponse {
+  orders: CateringOrder[];
 }

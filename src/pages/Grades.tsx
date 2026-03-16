@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   IonBadge,
+  IonButtons,
   IonCard,
   IonCardContent,
   IonCardHeader,
@@ -12,6 +13,7 @@ import {
   IonItem,
   IonLabel,
   IonList,
+  IonMenuButton,
   IonNote,
   IonPage,
   IonRefresher,
@@ -119,6 +121,9 @@ const Grades: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
           <IonTitle>Ocene</IonTitle>
         </IonToolbar>
       </IonHeader>

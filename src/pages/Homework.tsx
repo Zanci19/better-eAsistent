@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   IonBadge,
+  IonButtons,
   IonCard,
   IonCardContent,
   IonChip,
@@ -8,6 +9,7 @@ import {
   IonHeader,
   IonIcon,
   IonLabel,
+  IonMenuButton,
   IonPage,
   IonRefresher,
   IonRefresherContent,
@@ -77,6 +79,9 @@ const Homework: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
           <IonTitle>Domača naloga</IonTitle>
         </IonToolbar>
       </IonHeader>

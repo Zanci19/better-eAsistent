@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import {
   IonAvatar,
   IonButton,
+  IonButtons,
   IonCard,
   IonCardContent,
   IonCardHeader,
@@ -12,6 +13,7 @@ import {
   IonItem,
   IonLabel,
   IonList,
+  IonMenuButton,
   IonNote,
   IonPage,
   IonRefresher,
@@ -77,6 +79,9 @@ const Profile: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
           <IonTitle>Profil</IonTitle>
           <IonButton slot="end" fill="clear" onClick={handleLogout} className="logout-button">
             <IonIcon icon={logOutOutline} slot="icon-only" />
