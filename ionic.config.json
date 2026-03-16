@@ -1,0 +1,7 @@
+{
+  "name": "Better eAsistent",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
