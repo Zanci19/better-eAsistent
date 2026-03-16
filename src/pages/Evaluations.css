@@ -1,0 +1,154 @@
+.eval-error {
+  padding: 16px;
+  text-align: center;
+}
+
+.eval-skeleton {
+  padding: 12px 12px;
+}
+
+.eval-segment {
+  padding: 4px 12px 8px;
+}
+
+.eval-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  gap: 12px;
+}
+
+.eval-empty-icon {
+  font-size: 48px;
+  color: var(--ion-color-success);
+  opacity: 0.6;
+}
+
+.eval-empty p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.eval-list {
+  padding: 8px 12px 80px;
+}
+
+.eval-card {
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 12px;
+  border-left: 4px solid transparent;
+}
+
+.eval-card--today {
+  border-left-color: var(--ion-color-danger);
+}
+
+.eval-card--soon {
+  border-left-color: var(--ion-color-warning);
+}
+
+.eval-card-content {
+  padding: 14px 14px 12px !important;
+}
+
+.eval-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+.eval-subject-block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.eval-type-icon {
+  font-size: 22px;
+  color: var(--ion-color-primary);
+  flex-shrink: 0;
+}
+
+.eval-subject {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ion-text-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eval-days-badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.eval-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.eval-chip {
+  height: 24px;
+  font-size: 12px;
+  margin: 0;
+  padding: 0 8px;
+}
+
+.eval-chip ion-icon {
+  font-size: 13px;
+  margin-right: 3px;
+}
+
+.eval-chip ion-label {
+  font-size: 12px;
+}
+
+.eval-chip--date {
+  --background: rgba(var(--ion-color-primary-rgb), 0.1);
+  --color: var(--ion-color-primary);
+}
+
+.eval-chip--time {
+  --background: var(--ion-color-light);
+}
+
+.eval-chip--type {
+  --background: rgba(var(--ion-color-secondary-rgb), 0.12);
+  --color: var(--ion-color-secondary);
+}
+
+.eval-description {
+  font-size: 13px;
+  color: var(--ion-text-color);
+  margin-bottom: 6px;
+  font-style: italic;
+}
+
+.eval-teacher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--ion-color-medium);
+}
+
+.eval-teacher ion-icon {
+  font-size: 13px;
+}
+
+.eval-unconfirmed {
+  margin-top: 4px;
+  display: block;
+}

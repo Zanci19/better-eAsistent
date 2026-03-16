@@ -1,0 +1,156 @@
+.hw-error {
+  padding: 16px;
+  text-align: center;
+}
+
+.hw-skeleton {
+  padding: 12px 12px;
+}
+
+.hw-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  gap: 12px;
+}
+
+.hw-empty-icon {
+  font-size: 48px;
+  color: var(--ion-color-success);
+  opacity: 0.6;
+}
+
+.hw-empty p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.hw-list {
+  padding: 8px 12px 80px;
+}
+
+.hw-section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ion-color-primary);
+  margin: 12px 4px 8px;
+}
+
+.hw-section-header ion-icon {
+  font-size: 18px;
+}
+
+.hw-section-header--done {
+  color: var(--ion-color-success);
+}
+
+.hw-card {
+  border-radius: 14px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 10px;
+  border-left: 4px solid transparent;
+}
+
+.hw-card--overdue {
+  border-left-color: var(--ion-color-danger);
+}
+
+.hw-card--soon {
+  border-left-color: var(--ion-color-warning);
+}
+
+.hw-card--done {
+  opacity: 0.65;
+}
+
+.hw-card-content {
+  padding: 12px 14px 10px !important;
+}
+
+.hw-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.hw-subject {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ion-text-color);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hw-due-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.hw-done-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.hw-description {
+  font-size: 13px;
+  color: var(--ion-text-color);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.hw-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.hw-chip {
+  height: 22px;
+  font-size: 11px;
+  margin: 0;
+  padding: 0 7px;
+}
+
+.hw-chip ion-icon {
+  font-size: 12px;
+  margin-right: 3px;
+}
+
+.hw-chip ion-label {
+  font-size: 11px;
+}
+
+.hw-chip--due {
+  --background: rgba(var(--ion-color-danger-rgb), 0.08);
+  --color: var(--ion-color-danger);
+}
+
+.hw-chip--created {
+  --background: var(--ion-color-light);
+}
+
+.hw-teacher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--ion-color-medium);
+}
+
+.hw-teacher ion-icon {
+  font-size: 13px;
+}

@@ -1,0 +1,175 @@
+.grades-error {
+  padding: 16px;
+  text-align: center;
+}
+
+.grades-skeleton {
+  padding: 16px;
+}
+
+.skeleton-card {
+  margin-bottom: 20px;
+}
+
+.grades-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  gap: 12px;
+}
+
+.grades-empty-icon {
+  font-size: 48px;
+  color: var(--ion-color-medium);
+  opacity: 0.5;
+}
+
+.grades-empty p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.grades-list {
+  padding: 12px 12px 80px;
+}
+
+.subject-card {
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 14px;
+}
+
+.subject-card-header {
+  padding-bottom: 4px;
+}
+
+.subject-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.subject-title-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.subject-icon {
+  font-size: 22px;
+  color: var(--ion-color-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.subject-name {
+  font-size: 16px !important;
+  font-weight: 700;
+  color: var(--ion-text-color);
+  white-space: normal;
+}
+
+.subject-teacher {
+  font-size: 12px;
+  color: var(--ion-color-medium);
+  display: block;
+  margin-top: 2px;
+}
+
+.subject-avg-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.subject-avg-badge {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  min-width: 48px;
+  text-align: center;
+}
+
+.subject-avg-label {
+  font-size: 10px;
+  color: var(--ion-color-medium);
+  text-align: center;
+}
+
+.subject-card-content {
+  padding-top: 4px !important;
+}
+
+.grade-list {
+  background: transparent;
+  padding: 0;
+}
+
+.grade-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+.grade-badge {
+  font-size: 18px;
+  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.grade-desc {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ion-text-color);
+  margin-bottom: 4px;
+}
+
+.grade-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.grade-chip {
+  --background: var(--ion-color-light);
+  height: 20px;
+  font-size: 11px;
+  margin: 0;
+  padding: 0 6px;
+}
+
+.grade-chip ion-label {
+  font-size: 11px;
+}
+
+.grade-chip--period {
+  --background: rgba(var(--ion-color-secondary-rgb), 0.1);
+  --color: var(--ion-color-secondary);
+}
+
+.grade-date {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  color: var(--ion-color-medium);
+  flex-shrink: 0;
+}
+
+.grade-date ion-icon {
+  font-size: 12px;
+}

@@ -89,6 +89,93 @@ export interface RefreshTokenResponse {
   refresh_token: string;
 }
 
+// ── Grades ────────────────────────────────────────────────────────────────────
+
+export interface Grade {
+  id: number;
+  subject_id: number;
+  subject_name: string;
+  subject_shortname: string;
+  teacher_name: string;
+  date_created: string;
+  grade: string;
+  grade_value: number;
+  description: string;
+  type: string;
+  is_final: boolean;
+  period: string;
+  note: string;
+}
+
+export interface GradesResponse {
+  items: Grade[];
+}
+
+// ── Absences ──────────────────────────────────────────────────────────────────
+
+export interface Absence {
+  id: number;
+  date: string;
+  from: string;
+  to: string;
+  event_name: string;
+  subject_name: string;
+  is_excused: boolean;
+  excused_at: string | null;
+  type: string;
+  note: string;
+}
+
+export interface AbsencesSummary {
+  excused: number;
+  unexcused: number;
+  justified: number;
+  total: number;
+}
+
+export interface AbsencesResponse {
+  items: Absence[];
+  summary: AbsencesSummary;
+}
+
+// ── Evaluations ───────────────────────────────────────────────────────────────
+
+export interface Evaluation {
+  id: number;
+  subject_id: number;
+  subject_name: string;
+  subject_shortname: string;
+  teacher_name: string;
+  date: string;
+  from: string;
+  to: string;
+  description: string;
+  type: string;
+  confirmed: boolean;
+}
+
+export interface EvaluationsResponse {
+  items: Evaluation[];
+}
+
+// ── Homework ──────────────────────────────────────────────────────────────────
+
+export interface HomeworkItem {
+  id: number;
+  date_created: string;
+  date_expire: string;
+  subject_name: string;
+  subject_shortname: string;
+  teacher_name: string;
+  description: string;
+  done: boolean;
+  class_name: string;
+}
+
+export interface HomeworkResponse {
+  items: HomeworkItem[];
+}
+
 function authHeaders(token: string): Record<string, string> {
   return {
     ...DEFAULT_HEADERS,
@@ -211,4 +298,92 @@ export function formatSlovenianDay(dateStr: string): string {
   const d = String(day).padStart(2, '0');
   const m = String(month).padStart(2, '0');
   return `${dayName}, ${d}. ${m}.`;
+}
+
+export async function getGrades(token: string): Promise<GradesResponse> {
+  const response = await fetch(`${BASE_URL}/grades`, {
+    method: 'GET',
+    headers: authHeaders(token),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Napaka pri pridobivanju ocen (${response.status})`);
+  }
+
+  return response.json() as Promise<GradesResponse>;
+}
+
+export async function getAbsences(token: string): Promise<AbsencesResponse> {
+  const response = await fetch(`${BASE_URL}/absences`, {
+    method: 'GET',
+    headers: authHeaders(token),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Napaka pri pridobivanju izostankov (${response.status})`);
+  }
+
+  return response.json() as Promise<AbsencesResponse>;
+}
+
+export async function getEvaluations(
+  token: string,
+  filter: 'future' | 'past',
+): Promise<EvaluationsResponse> {
+  const response = await fetch(`${BASE_URL}/evaluations?filter=${filter}`, {
+    method: 'GET',
+    headers: authHeaders(token),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Napaka pri pridobivanju ocenjevanj (${response.status})`);
+  }
+
+  return response.json() as Promise<EvaluationsResponse>;
+}
+
+export async function getHomework(token: string): Promise<HomeworkResponse> {
+  const response = await fetch(`${BASE_URL}/homework`, {
+    method: 'GET',
+    headers: authHeaders(token),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Napaka pri pridobivanju domačih nalog (${response.status})`);
+  }
+
+  return response.json() as Promise<HomeworkResponse>;
+}
+
+export function gradeColor(value: number): string {
+  if (value >= 5) return 'success';
+  if (value >= 4) return 'primary';
+  if (value >= 3) return 'warning';
+  if (value >= 2) return 'tertiary';
+  return 'danger';
+}
+
+export function gradeLabel(value: number): string {
+  switch (value) {
+    case 5: return 'Odlično';
+    case 4: return 'Prav dobro';
+    case 3: return 'Dobro';
+    case 2: return 'Zadostno';
+    case 1: return 'Nezadostno';
+    default: return String(value);
+  }
+}
+
+export function formatShortDate(dateStr: string): string {
+  if (!dateStr) return '—';
+  const [year, month, day] = dateStr.split('-').map(Number);
+  return `${String(day).padStart(2, '0')}. ${String(month).padStart(2, '0')}. ${year}`;
+}
+
+export function daysUntil(dateStr: string): number {
+  const [year, month, day] = dateStr.split('-').map(Number);
+  const target = Date.UTC(year, month - 1, day);
+  const now = new Date();
+  const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  return Math.round((target - today) / (1000 * 60 * 60 * 24));
 }

@@ -10,10 +10,21 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { calendarOutline, personOutline } from 'ionicons/icons';
+import {
+  alertCircleOutline,
+  bookOutline,
+  calendarOutline,
+  documentTextOutline,
+  personOutline,
+  ribbonOutline,
+} from 'ionicons/icons';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Login from './pages/Login';
 import Timetable from './pages/Timetable';
+import Grades from './pages/Grades';
+import Absences from './pages/Absences';
+import Evaluations from './pages/Evaluations';
+import Homework from './pages/Homework';
 import Profile from './pages/Profile';
 
 /* Core CSS required for Ionic components to work properly */
@@ -66,6 +77,10 @@ const AppRoutes: React.FC = () => {
     <IonTabs>
       <IonRouterOutlet>
         <Route exact path="/urnik" component={Timetable} />
+        <Route exact path="/ocene" component={Grades} />
+        <Route exact path="/izostanki" component={Absences} />
+        <Route exact path="/ocenjevanja" component={Evaluations} />
+        <Route exact path="/naloge" component={Homework} />
         <Route exact path="/profil" component={Profile} />
         <Route exact path="/">
           <Redirect to="/urnik" />
@@ -78,6 +93,22 @@ const AppRoutes: React.FC = () => {
         <IonTabButton tab="urnik" href="/urnik">
           <IonIcon aria-hidden="true" icon={calendarOutline} />
           <IonLabel>Urnik</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="ocene" href="/ocene">
+          <IonIcon aria-hidden="true" icon={ribbonOutline} />
+          <IonLabel>Ocene</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="izostanki" href="/izostanki">
+          <IonIcon aria-hidden="true" icon={alertCircleOutline} />
+          <IonLabel>Izostanki</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="ocenjevanja" href="/ocenjevanja">
+          <IonIcon aria-hidden="true" icon={documentTextOutline} />
+          <IonLabel>Testi</IonLabel>
+        </IonTabButton>
+        <IonTabButton tab="naloge" href="/naloge">
+          <IonIcon aria-hidden="true" icon={bookOutline} />
+          <IonLabel>Naloge</IonLabel>
         </IonTabButton>
         <IonTabButton tab="profil" href="/profil">
           <IonIcon aria-hidden="true" icon={personOutline} />
