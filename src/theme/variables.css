@@ -1,2 +1,146 @@
-/* For information on how to create your own theme, please refer to:
-http://ionicframework.com/docs/theming/ */
+/* Side-menu styles */
+ion-menu {
+  --width: 280px;
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 28px 20px 16px;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+  margin-bottom: 8px;
+}
+
+.menu-avatar-icon {
+  font-size: 44px;
+  color: var(--ion-color-primary);
+  flex-shrink: 0;
+}
+
+.menu-user-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ion-text-color);
+}
+
+.menu-user-sub {
+  font-size: 12px;
+}
+
+.menu-item {
+  --border-radius: 10px;
+  --padding-start: 16px;
+  margin: 2px 8px;
+  border-radius: 10px;
+}
+
+.menu-item--active {
+  --background: rgba(var(--ion-color-primary-rgb), 0.12);
+  --color: var(--ion-color-primary);
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  .menu-header {
+    border-bottom-color: #2a2a2a;
+  }
+}
+
+:root {
+  --ion-color-primary: #3d5af1;
+  --ion-color-primary-rgb: 61, 90, 241;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #364fd4;
+  --ion-color-primary-tint: #506cf3;
+
+  --ion-color-secondary: #6c47ff;
+  --ion-color-secondary-rgb: 108, 71, 255;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #5f3ee0;
+  --ion-color-secondary-tint: #7b59ff;
+
+  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary-rgb: 82, 96, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #4854e0;
+  --ion-color-tertiary-tint: #6370ff;
+
+  --ion-color-success: #2dd36f;
+  --ion-color-success-rgb: 45, 211, 111;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #28ba62;
+  --ion-color-success-tint: #42d77d;
+
+  --ion-color-warning: #ffc409;
+  --ion-color-warning-rgb: 255, 196, 9;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0ac08;
+  --ion-color-warning-tint: #ffca22;
+
+  --ion-color-danger: #eb445a;
+  --ion-color-danger-rgb: 235, 68, 90;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #cf3c4f;
+  --ion-color-danger-tint: #ed576b;
+
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34, 36, 40;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146, 148, 156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 245, 248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --ion-color-primary: #5573f5;
+    --ion-color-primary-rgb: 85, 115, 245;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #4b64d8;
+    --ion-color-primary-tint: #6681f6;
+
+    --ion-color-secondary: #8269ff;
+    --ion-color-secondary-rgb: 130, 105, 255;
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-contrast-rgb: 255, 255, 255;
+    --ion-color-secondary-shade: #7259e0;
+    --ion-color-secondary-tint: #8f78ff;
+
+    --ion-background-color: #121212;
+    --ion-background-color-rgb: 18, 18, 18;
+
+    --ion-text-color: #ffffff;
+    --ion-text-color-rgb: 255, 255, 255;
+
+    --ion-item-background: #1e1e1e;
+
+    --ion-toolbar-background: #1c1c1c;
+    --ion-tab-bar-background: #1c1c1c;
+
+    --ion-card-background: #1e1e1e;
+  }
+}
+
