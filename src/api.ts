@@ -9,7 +9,15 @@ export type ApiBundle = {
   user: unknown;
 };
 
-const API_BASE = 'http://localhost:8100/m';
+const API_BASE = '/m';
+
+const REQUIRED_HEADERS: Record<string, string> = {
+  'x-app-name': 'child',
+  'x-client-version': '11101',
+  'x-client-platform': 'android',
+  'app': 'new_mobile_app',
+  'Content-Type': 'application/json',
+};
 
 const ensureAbsoluteUrl = (path: string): string => {
   if (path.startsWith('http://') || path.startsWith('https://')) {
@@ -25,7 +33,7 @@ const buildDateQuery = ({ from, to }: DateRange): string => {
 };
 
 const getJson = async (url: string): Promise<unknown> => {
-  const response = await fetch(url);
+  const response = await fetch(url, { headers: REQUIRED_HEADERS });
 
   if (!response.ok) {
     throw new Error(`${response.status} ${response.statusText} (${url})`);
@@ -51,11 +59,7 @@ export const fetchAllFromApi = async (range: DateRange): Promise<ApiBundle> => {
     getJson(`${API_BASE}/grades?${dateQuery}`),
     getJson(`${API_BASE}/absences?${dateQuery}`),
     getJson(`${API_BASE}/homework?${dateQuery}`),
-    getJson(`${API_BASE}/evaluations?${new URLSearchParams({
-      filter: 'future',
-      from: range.from,
-      to: range.to,
-    }).toString()}`),
+    getJson(`${API_BASE}/evaluations?filter=future`),
     fetchSchoolCatering(range),
     getJson(`${API_BASE}/user`),
   ]);
